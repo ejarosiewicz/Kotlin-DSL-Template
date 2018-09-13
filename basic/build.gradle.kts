@@ -22,9 +22,9 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.61")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:3.0.2")
-    androidTestImplementation("com.android.support.test:runner:1.0.2")
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.61")
+    implementation(Dependencies.kotlinStdLib)
+    testImplementation(Dependencies.Test.jUnit)
+    androidTestImplementation(Dependencies.UITest.espresso)
+    androidTestImplementation(Dependencies.UITest.runner)
+    compile(Dependencies.Compile.kotlinStdLibJdk)
 }
