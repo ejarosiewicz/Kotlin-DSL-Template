@@ -1,3 +1,4 @@
+import app.AppSettings
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
@@ -7,14 +8,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(AndroidVersions.compileSdkVersion)
     defaultConfig {
-        applicationId = "com.ejarosiewicz.dsltemplate"
-        minSdkVersion(28)
-        targetSdkVersion(28)
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        applicationId = AppSettings.applicationId
+        minSdkVersion(AndroidVersions.minSdkVersion)
+        targetSdkVersion(AndroidVersions.targetSdkVersion)
+        versionCode = AndroidVersions.versionCode
+        versionName = AndroidVersions.versionName
+        testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
     }
     buildTypes {
         getByName("release") {
