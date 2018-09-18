@@ -20,8 +20,11 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
         }
     }
 }
@@ -32,7 +35,9 @@ dependencies {
     implementation(ApppDependencies.appCompat)
     implementation(ApppDependencies.constraintLayout)
     implementation(ApppDependencies.design)
+
     testImplementation(Dependencies.Test.jUnit)
+
     androidTestImplementation(Dependencies.UITest.espresso)
     androidTestImplementation(Dependencies.UITest.runner)
 }
