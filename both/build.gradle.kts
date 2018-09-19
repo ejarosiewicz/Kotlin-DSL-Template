@@ -26,8 +26,8 @@ android {
 
 dependencies {
     implementation(Dependencies.kotlinStdLib)
+    implementation(Dependencies.Compile.kotlinStdLibJdk)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.UITest.espresso)
     androidTestImplementation(Dependencies.UITest.runner)
-    compile(Dependencies.Compile.kotlinStdLibJdk)
 }

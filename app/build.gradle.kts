@@ -10,6 +10,7 @@ plugins {
 
 android {
     compileSdkVersion(AndroidVersions.compileSdkVersion)
+
     defaultConfig {
         applicationId = AppSettings.applicationId
         minSdkVersion(AndroidVersions.minSdkVersion)
@@ -18,6 +19,7 @@ android {
         versionName = AndroidVersions.versionName
         testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -25,6 +27,21 @@ android {
         }
         getByName("debug") {
             isMinifyEnabled = false
+        }
+    }
+
+    flavorDimensions("version")
+
+    productFlavors {
+        create("basic"){
+            dimension = "version"
+            applicationIdSuffix = ".basic"
+            versionNameSuffix = "-B"
+        }
+        create("premium"){
+            dimension = "version"
+            applicationIdSuffix = ".premium"
+            versionNameSuffix = "-P"
         }
     }
 }
@@ -35,6 +52,12 @@ dependencies {
     implementation(ApppDependencies.appCompat)
     implementation(ApppDependencies.constraintLayout)
     implementation(ApppDependencies.design)
+    implementation(ApppDependencies.koin)
+    implementation(project(":both","default"))
+
+    "basicImplementation"(project(":basic","default"))
+
+    "premiumImplementation"(project(":premium","default"))
 
     testImplementation(Dependencies.Test.jUnit)
 
