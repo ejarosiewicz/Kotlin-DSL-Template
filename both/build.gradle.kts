@@ -2,14 +2,14 @@ import com.android.tools.r8.ir.code.And
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
+    id("kotlin-android-extensions")
 }
 
 android {
     compileSdkVersion(AndroidVersions.compileSdkVersion)
     defaultConfig {
-        applicationId = "com.ejarosiewicz.premiumm"
         minSdkVersion(AndroidVersions.minSdkVersion)
         targetSdkVersion(AndroidVersions.targetSdkVersion)
         versionCode = AndroidVersions.versionCode
@@ -18,15 +18,17 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
         }
     }
 }
 
 dependencies {
     implementation(Dependencies.kotlinStdLib)
-    implementation(Dependencies.Compile.kotlinStdLibJdk)
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.UITest.espresso)
     androidTestImplementation(Dependencies.UITest.runner)

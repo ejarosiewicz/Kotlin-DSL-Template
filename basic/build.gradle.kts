@@ -1,12 +1,11 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
 }
 
 android {
     compileSdkVersion(AndroidVersions.compileSdkVersion)
     defaultConfig {
-        applicationId = "com.ejarosiewicz.basic"
         minSdkVersion(AndroidVersions.minSdkVersion)
         targetSdkVersion(AndroidVersions.targetSdkVersion)
         versionCode = AndroidVersions.versionCode
@@ -15,8 +14,11 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
         }
     }
 }

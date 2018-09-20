@@ -4,5 +4,5 @@ import org.koin.dsl.module.module
 
 val versionModule = module {
 
-    single {  }
+    single { }
 }

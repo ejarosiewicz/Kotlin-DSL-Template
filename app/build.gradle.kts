@@ -53,11 +53,11 @@ dependencies {
     implementation(ApppDependencies.constraintLayout)
     implementation(ApppDependencies.design)
     implementation(ApppDependencies.koin)
-    implementation(project(":both","default"))
-
-    "basicImplementation"(project(":basic","default"))
-
-    "premiumImplementation"(project(":premium","default"))
+    implementation(project(":both"))
+//
+//    "basicImplementation"(project(":basic","default"))
+//
+//    "premiumImplementation"(project(":premium","default"))
 
     testImplementation(Dependencies.Test.jUnit)
 
